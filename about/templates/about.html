@@ -1,0 +1,295 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!--Page SEO Snippets-->
+{% block titles %}
+{% for a_seo in a_seo %}
+{{a_seo.meta_title}}
+{% endfor %}
+{% endblock titles %}
+
+
+{% block meta_description %}
+{% for a_seo in a_seo %}
+{{a_seo.meta_description}}
+{% endfor %}
+{% endblock meta_description %}
+
+
+{% block meta_keyword %}
+{% for a_seo in a_seo %}
+{{a_seo.meta_keyword}}
+{% endfor %}
+{% endblock meta_keyword %}
+<!--Page SEO Snippets-->
+
+
+{% block aboutpage %}
+    <!--====== PAGE TITLE  PART START ======-->
+    {% for aslider in aslider %}
+    <div class="page-title-area">
+        <div class="section__bg" style="background-image: url('{{aslider.slider_image.url}}');"></div>
+        {% endfor %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-title-content text-center">
+                        <h3 class="title">A propos</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">A propos</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--====== PAGE TITLE  PART ENDS ======-->
+
+    <!--====== ABOUT US PART START ======-->
+    
+    <section class="about-us-area pt-100">
+        {% for aboutone in aboutone %}
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-12 col-lg-6">
+                    <div class="about-content">
+                        <img src="{% static 'images/hero-line.png' %}" alt="{{aboutone.sub_heading}}">
+                        <span>{{aboutone.sub_heading}}</span>
+                        <h3 class="title">{{aboutone.heading}} </h3>
+                        <p>{{aboutone.content|safe}}</p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="about-thumb animated wow fadeInRight" data-wow-duration="3000ms" data-wow-delay="0ms">
+                        <img src="{{aboutone.image.url}}" alt="{{aboutone.heading}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+
+    <section class="about-us-area pt-100 pb-60">
+        {% for abouttwo in abouttwo %}
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-12 col-lg-6">
+                    <div class="about-thumb animated wow fadeInLeft" data-wow-duration="3000ms" data-wow-delay="0ms">
+                        <img src="{{abouttwo.image.url}}" alt="{{abouttwo.heading }}">
+                        
+                    </div>
+                </div>
+               <div></div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="about-content">
+                        <img src="{% static 'images/hero-line.png' %}" alt="{{abouttwo.sub_heading}}">
+                        <span>{{abouttwo.sub_heading}}</span>
+                        <h3 class="title">{{abouttwo.heading }}</h3>
+                        <p>{{abouttwo.content|safe}}</p>
+                    </div>
+                    {% endfor %}
+                    {% for progressbar in progressbar %}
+                    <div class="row">
+                    <div class="col col-lg-2"><span>{{progressbar.title}}</span></div>
+                    <div class="col"></div>
+                    <div class="col col-lg-2 float-right"><span>{{progressbar.value}}%</span></div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" style="width:{{progressbar.value}}%; background-color:#ff7425"></div>
+                      </div>
+                      {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
+    <!--====== ABOUT US PART ENDS ======-->
+
+    <!--====== OVERVIEW PART START ======-->
+    
+    <section class="overview-area pb-100">
+        <div class="container">            <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-9">
+                <div class="section-title text-center">
+                    <img src="{% static 'images/hero-line.png' %}" alt="our project five">
+                    <h3 class="title">NOUS AVONS FAIT</h3>
+                </div>
+            </div>
+        </div>
+                    <div class="overview-counter-area">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 ">
+                                <div class="overview-counter-item mt-10 animated wow fadeInUp" data-wow-duration="3000ms" data-wow-delay="0ms">
+                                    <div class="icon">
+                                        <img src="{% static 'images/project.png' %}" alt="project image">
+                                    </div>
+                                    <h3 class="title count">15</h3>
+                                    <span>Projets</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="overview-counter-item mt-10 animated wow fadeInUp" data-wow-duration="3000ms" data-wow-delay="300ms">
+                                    <div class="icon">
+                                        <img src="{% static 'images/rating.png' %}" alt="rating image">
+                                    </div>
+                                    <h3 class="title count">15</h3>
+                                    <span>Clients satisfaits</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="overview-counter-item mt-30 animated wow fadeInUp" data-wow-duration="3000ms" data-wow-delay="600ms">
+                                    <div class="icon">
+                                        <img src="{% static 'images/flowchart.png' %}" alt="flowchart image">
+                                    </div>
+                                    <h3 class="title count">06</h3>
+                                    <span>
+                                        Projets en cours</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="overview-counter-item mt-30 animated wow fadeInUp" data-wow-duration="3000ms" data-wow-delay="900ms">
+                                    <div class="icon">
+                                        <img src="{% static 'images/target-2.png' %}" alt="target image">
+                                    </div>
+                                    <h3 class="title count">05</h3>
+                                    <span>Clients permanents</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <!--====== OVERVIEW PART ENDS ======-->
+    
+    <!--====== PORTFOLIO STYLE 1 PART START ======-->
+    
+    <div id="portfolio-scroll" class="portfolio-style-1-area pt-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="our project five">
+                        <h3 class="title">Notre Portfolio</h3>
+                        <p>Notre portfolio en tant qu'agence digitale: une collection d'œuvres créatives et innovantes qui démontrent notre expertise en design et développement web.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row grid">
+                {% for portfolio in portfolio %}
+                <div class="col-lg-4 col-md-6 cat-4 cat-2 {{portfolio.cat}}">
+                    
+                    <div class="portfolio-style-4-item mt-30">
+                        
+                        <div class="portfolio-thumb">
+                            <img src="{{portfolio.image.url}}" alt="{{portfolio.title}}">
+                            <a href="{% url 'port_detail' portfolio.slug %}">See details <span><img src="{% static 'images/icon/portfolio-arrow-2.png' %}" alt="{{portfolio.title}}"></span></a>
+                        </div>
+                        <div class="portfolio-content">
+                            <h5 class="title">{{portfolio.title}}</h5>
+                            <span>{{portfolio.cat}}</span>
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+    
+    <!--====== PORTFOLIO STYLE 1 PART ENDS ======-->
+
+    <!--====== TESTIMONIAL PART START ======-->
+    
+    <section class="testimonial-area mt-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title section-title-2 text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="our latest testimonial ddd">
+                        <h3 class="title">Témoignages
+                        </h3>
+                        <p>Nous sommes fiers d'aider nos clients à atteindre leurs objectifs. Voici quelques-uns de leurs commentaires sur notre travail en tant qu'agence digitale.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row testimonial-active">
+                {% for testimonial in testimonial %}
+                <div class="col-lg-4">
+                    <div class="testimonial-item mt-30">
+                        <div class="quote">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="53.729" height="40" viewBox="0 0 53.729 40">
+                              <g data-name="Group 21" transform="translate(0 0)">
+                                <path data-name="Union 1" d="M47.055,40a1.21,1.21,0,0,1-1.018-.509L31.106,19.357A12.178,12.178,0,0,1,29.07,11.1,12.364,12.364,0,1,1,45.98,23.881l6.957,14.253A1.313,1.313,0,0,1,51.806,40ZM18.1,40a1.209,1.209,0,0,1-1.018-.509L2.149,19.357A12.77,12.77,0,0,1,.056,11.043,12.395,12.395,0,1,1,17.023,23.881L23.98,38.134A1.313,1.313,0,0,1,22.849,40Z" transform="translate(0 0)"/>
+                              </g>
+                            </svg>
+                        </div>
+                        <p>{{testimonial.client_message}}</p>
+                        <div class="info">
+                            <img style="border-radius:40px;" src="{{testimonial.image.url}}" alt="{{testimonial.client_name}}">
+                            <h5 class="title">{{testimonial.client_name}}</h5>
+                            <span>{{testimonial.client_designatiion}}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section>
+    
+    <!--====== TESTIMONIAL PART ENDS ======-->
+
+    <!--====== TEAM PART START ======-->
+    
+    <section class="team-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="our team image det">
+                        <h3 class="title">Notre équipe</h3>
+                        <p>Notre équipe est une agence digitale passionnée par la création de solutions innovantes et sur mesure pour aider nos clients à atteindre leurs objectifs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row team-active">
+                {% for team in team %}
+                <div class="col-lg-3">
+                    <div class="team-item mt-40 mb-100">
+                        <img src="{{team.image.url}}" alt="{{team.position}}">
+                        <div class="team-overlay d-flex align-items-end">
+                            <div class="content">
+                                <h4 class="title">{{team.member_name}}</h4>
+                                <span>{{team.position}}</span>
+                                <ul>
+                                    <li><a href="{{team.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{team.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{{team.youtube}}"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="{{team.instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section>
+    
+    <!--====== TEAM PART ENDS ======-->
+
+    {% endblock aboutpage %}

@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<!--Page SEO Snippets-->
+{% block titles %}
+{% for ser_seo in ser_seo %}
+{{ser_seo.meta_title}}
+{% endfor %}
+{% endblock titles %}
+
+
+{% block meta_description %}
+{% for ser_seo in ser_seo %}
+{{ser_seo.meta_description}}
+{% endfor %}
+{% endblock meta_description %}
+
+
+{% block meta_keyword %}
+{% for ser_seo in ser_seo %}
+{{ser_seo.meta_keyword}}
+{% endfor %}
+{% endblock meta_keyword %}
+<!--Page SEO Snippets-->
+
+{% block services %}
+
+    <!--====== PAGE TITLE  PART START ======-->
+    {% for serslider in serslider %}
+    <div class="page-title-area">
+        <div class="section__bg" style="background-image: url('{{serslider.slider_image.url}}');"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-title-content text-center">
+                        <h3 class="title">Services</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Services</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!--====== PAGE TITLE  PART ENDS ======-->
+
+    <!--====== SERVICE PART START ======-->
+    
+    <section class="service-area service-page-area pb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                {% for service in service %}
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="service-item mt-30 animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0ms">
+                        <div class="icon">
+                            <img src="{{service.icon.url}}" alt="{{service.service_title}}">
+                        </div>
+                        <h3 class="title">{{service.service_title}}</h3>
+                        <p>{{service.description}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!--====== SERVICE PART ENDS ======-->
+
+    <!--====== PORTFOLIO STYLE 1 PART START ======-->
+    
+    <div id="portfolio-scroll" class="portfolio-style-1-area pt-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="service heroline service">
+                        <h3 class="title">Notre Portfolio</h3>
+                        <p>Notre portfolio en tant qu'agence digitale: une collection d'œuvres créatives et innovantes qui démontrent notre expertise en design et développement web.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row grid">
+                {% for portfolio in portfolio %}
+                <div class="col-lg-4 col-md-6 cat-4 cat-2 {{portfolio.cat}}">
+                    
+                    <div class="portfolio-style-4-item mt-30">
+                        
+                        <div class="portfolio-thumb">
+                            <img src="{{portfolio.image.url}}" alt="{{portfolio.title}} services page">
+                            <a href="{% url 'port_detail' portfolio.slug %}">See details <span><img src="{% static 'images/icon/portfolio-arrow-2.png' %}" alt="{{portfolio.title}}"></span></a>
+                        </div>
+                        <div class="portfolio-content">
+                            <h5 class="title">{{portfolio.title}}</h5>
+                            <span>{{portfolio.cat}}</span>
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+    
+    <!--====== PORTFOLIO STYLE 1 PART ENDS ======-->
+
+    <!--====== TEAM PART START ======-->
+    
+    <section class="team-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="hero line team service page">
+                        <h3 class="title">Notre équipe</h3>
+                        <p>Notre équipe est une agence digitale passionnée par la création de solutions innovantes et sur mesure pour aider nos clients à atteindre leurs objectifs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row team-active">
+                {% for team in team %}
+                <div class="col-lg-3">
+                    <div class="team-item mt-40 mb-100">
+                        <img src="{{team.image.url}}" alt="{{team.position}}">
+                        <div class="team-overlay d-flex align-items-end">
+                            <div class="content">
+                                <h4 class="title">{{team.member_name}}</h4>
+                                <span>{{team.position}}</span>
+                                <ul>
+                                    <li><a href="{{team.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{team.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{{team.youtube}}"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="{{team.instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section>
+    
+    <!--====== TEAM PART ENDS ======-->
+    {% endblock services %}
+    

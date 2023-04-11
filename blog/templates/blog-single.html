@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Page SEO Snippets-->
+{% block titles %}
+{{blogd.title}} - WEBCOM08
+{% endblock titles %}
+
+
+{% block meta_description %}
+{{blogd.meta_description}}
+{% endblock meta_description %}
+
+
+{% block meta_keyword %}
+{{blogd.meta_keyword}}
+{% endblock meta_keyword %}
+<!--Page SEO Snippets-->
+
+
+
+{% block blog_details %}
+    <!--====== PAGE TITLE  PART START ======-->
+    <div class="page-title-area page-title-2-area">
+        <div class="section__bg" style="background-image: url('{{blogd.image.url}}');"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="page-title-content page-title-content-2 text-center">
+                        <h3 class="title">{{blogd.title}}</h3>
+                        <div class="info">
+                            <img src="{{blogd.author.image.url}}" style="border-radius:40px;" alt="{{blogd.title}}">
+                            <h5 class="title">{{blogd.author}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== PAGE TITLE  PART ENDS ======-->
+        <div class="container pt-20">
+                <!--Hidden Message Alert Area-->
+                {% for message in messages %}
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    <strong>{{message}} &nbsp;</strong> 
+                    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+                {% endfor %}
+        </div>
+    <!--====== SINGLE POST PART START ======-->
+    
+    <section class="single-post-area pt-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="single-post-content mt-30">
+                        <div class="single-post-topbar">
+                            <ul>
+                                <li><img src="{% static 'images/icon/post-icon-1.png' %}" alt="post icon one"> {{blogd.add_date}}</li>
+                                <li><img src="{% static 'images/icon/post-icon-2.png' %}" alt="post icon two"> {{blogd.cat}}</li>
+                            </ul>
+                            <div class="social">
+                                <ul>
+                                    <li><a href="{{settings.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{settings.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{{settings.linkedIn}}"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="{{settings.instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="text mt-30">
+                                <p>{{blogd.content | safe}}</p>
+                            </div>
+                            
+                        </div>
+                        <div class="post-next">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    {% for prevblogs in prevblogs %}
+                                    <div class="prev-post">
+                                        <span>PREVIOUS NEWS</span>
+                                        <a href="{% url 'blog_detail' prevblogs.slug %}"><p>{{prevblogs.title}}</p></a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    {% for nextblogs in nextblogs %}
+                                    <div class="prev-post">
+                                        <span>NEXT NEWS</span>
+                                        <a href="{% url 'blog_detail' nextblogs.slug %}"><p>{{nextblogs.title}}</p></a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-post-sidebar mt-30">
+                        <div class="sidebar-search">
+                            <form action="#">
+                                <div class="input-box">
+                                    <input type="text" placeholder="Search here">
+                                    <button><i class="far fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="sidebar-categories mt-30">
+                            <h4 class="title">Categories</h4>
+                            {% for pcat in pcat %}
+                            <ul>
+                                <li><a href="#"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {{pcat.title}} ({{pcat.cat_id}}) <span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
+                            </ul>
+                            {% endfor %}
+                        </div>
+                        <div class="sidebar-post mt-30">
+                            <h4 class="title">Popular post</h4>
+                            <div class="post-items">
+                                {% for homeblogs in homeblogs %}
+                                <div class="item mt-30">
+                                    <div class="thumb">
+                                        <img src="{{homeblogs.image.url}}" style="height:85px; width:110px" alt="{{homeblogs.title}}">
+                                    </div>
+                                    <div class="content">
+                                        <a href="#"><h5 class="title">{{homeblogs.title}}</h5></a>
+                                        <span>{{homeblogs.add_date}}</span>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                            </div>
+                        </div>
+                        <div class="sidebar-gallery mt-30">
+                            <h3 class="title">Gallery</h3>
+                                <div class="row">
+                                {% for gallery in gallery %}
+                                    <div class="col-sm-4 pt-20"><img style="border:2px solid #ff931e; border-radius: 4px;" src="{{gallery.image.url}}" alt="{{gallery.title}}"></div>
+                                {% endfor %}
+                                </div>
+                        </div>
+                        <div class="sidebar-newsletter">
+                            <div class="footer-newsletter-item mt-60">
+                                <div class="dot">
+                                    <img src="{% static 'images/icon/footer-newsletter-dot.png' %}" alt="news letter one one">
+                                </div>
+                                <h3 class="title">Inscrivez-vous à notre newsletter pour recevoir des offres exclusives. </h3>
+                                <form role="form" action="{% url 'blog_detail' blogd.slug %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="input-box">
+                                        <input type="text" name="emails" placeholder="Enter email…">
+                                        <button class="main-btn-3" type="submit" name="formone">Join us</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--====== SINGLE POST PART ENDS ======-->
+
+    
+
+    <!--====== POST FORM PART START ======-->
+    
+    <div class="post-form-area">
+        <div class="container">
+            <div class="row justify-content-center mb-100">
+                <div class="col-lg-10">
+                    <div class="post-form-title">
+                        <h3 class="title">Leave an opinion</h3>
+                    </div>
+                    <div class="post-form-item">
+                        <form role="form" action="{% url 'blog_detail' blogd.slug %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-box mt-30">
+                                        <input type="text" placeholder="Full name" name="name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box mt-30">
+                                        <input type="email" placeholder="Email address" name="emailadd">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-box mt-30">
+                                        <textarea name="content" id="#" cols="30" rows="10" placeholder="Tell us about your opinion…"></textarea>
+                                        <button type="submit" name="formtwo" class="main-btn mt-20">POST OPINION</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="post-news">
+                        <div class="post-news-title">
+                            <h3 class="title">All Comments</h3>
+                            {% if not comments %}
+                            <h8> No Comments Yet </h8>
+                            {% else %}
+                        </div>
+                        <div class="post-news-items">
+                            {% for comments in comments %}
+                            <div class="item mt-20">
+                                <span>{{comments.name}}</span>
+                                <p>{{comments.content}}</p>
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--====== POST FORM PART ENDS ======-->
+
+
+
+    {% endblock blog_details %}
+
+
+
+    

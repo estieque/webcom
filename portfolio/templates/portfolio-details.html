@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block titles %}
+{{portd.title}}-Webcom08
+{% endblock titles %}
+
+
+{% block meta_description %}
+{{portd.meta_description}}
+{% endblock meta_description %}
+
+
+{% block meta_keyword %}
+{{portd.meta_tags}}
+{% endblock meta_keyword %}
+<!--Page SEO Snippets-->
+
+{% block port_details %}
+    <!--====== PAGE TITLE  PART START ======-->
+    {% for pslider in pslider %}
+    <div class="page-title-area page-title-2-area">
+        <div class="section__bg" style="background-image: url('{{pslider.slider_image.url}}');"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    
+                    <div class="page-title-content page-title-content-2 text-center">
+                        <h3 class="title">{{portd.title}}</h3>
+                        <nav class="pb-15" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+                                <li class="breadcrumb-item active" aria-current="page">Details</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!--====== PAGE TITLE  PART ENDS ======-->
+
+    <!--====== PORTFOLIO DETAILS PART START ======-->
+    
+    <section class="portfolio-details-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="portfolio-details-category">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="portfolio-details-category-thumb mt-30">
+                                    <img src="{{portd.image.url}}" alt="{{portd.title}} image">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="portfolio-details-category-list mt-30">
+                                    <div class="item">
+                                        <span>Client:</span>
+                                        <h4 class="title">{{portd.client}}</h4>
+                                    </div>
+                                    <div class="item">
+                                        <span>Services:</span>
+                                        <h4 class="title">{{portd.service}}</h4>
+                                    </div>
+                                    <div class="item">
+                                        <span>Team:</span>
+                                        <h4 class="title">{{portd.team}}</h4>
+                                    </div>
+                                    <div class="item">
+                                        <span>Category:</span>
+                                        <h4 class="title">{{portd.cat}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-details-content mt-65">
+                        <div class="row">
+                                <div class="text">
+                                    <p>{{portd.descriptions | safe}}</p>
+                                </div>
+                            
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--====== PORTFOLIO DETAILS PART ENDS ======-->
+
+    <!--====== ARTICLE POST PART START ======-->
+    
+    <section class="article-post-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="article-post-title text-center">
+                        <h3 class="title">Produits Apparentés</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                {% for portfolio in portfolio %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-style-4-item mt-30">
+                        <div class="portfolio-thumb">
+                            <img src="{{portfolio.image.url}}" alt="{{portfolio.title}} new">
+                            <a href="{% url 'port_detail' portfolio.slug %}">See details <span><img src="{% static 'images/icon/portfolio-arrow-2.png' %}" alt="portfolio image arrow image"></span></a>
+                        </div>
+                        <div class="portfolio-content">
+                            <h5 class="title">{{portfolio.title}}</h5>
+                            <span>{{portfolio.cat}}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section>
+    
+    <!--====== ARTICLE POST PART ENDS ======-->
+
+    
+    {% endblock port_details %}
+    

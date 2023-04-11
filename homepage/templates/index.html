@@ -1,0 +1,427 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!--Page SEO Snippets-->
+{% block titles %}
+{{settings.title}}
+{% endblock titles %}
+
+
+{% block meta_description %}
+{{settings.meta_description}}
+{% endblock meta_description %}
+
+
+{% block meta_keyword %}
+{{settings.meta_keyword}}
+{% endblock meta_keyword %}
+<!--Page SEO Snippets-->
+
+
+{% block homepage %}
+
+
+    <!--====== HERO PART START ======-->
+    {% for h_slider in h_slider %}
+    <section class="hero-area" >
+        
+        <div class="section__bg" style="background-image: url('{{h_slider.slider_image.url}}');"></div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <img src="{% static 'images/hero-line.png' %}" alt="hero line sjidj">
+                        <h1 class="title animated wow fadeInLeft" data-wow-duration="3000ms" data-wow-delay="0ms">{{h_slider.title}}</h1>
+                        <span class="animated wow fadeInLeft" data-wow-duration="3000ms" data-wow-delay="300ms">{{h_slider.short_description}}</span>
+                        <a class="main-btn main-btn-2 animated wow fadeInDown" data-wow-duration="3000ms" data-wow-delay="600ms" href="{% url 'contact' %}">Contactez-Nous</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="hero-play">
+                        <a class="video-popup" href="{{h_slider.video_url}}"><i class="fas fa-play"></i></a>
+                    </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    
+    <!--====== HERO PART ENDS ======-->
+
+    <!--====== SUB ITEM PART START ======-->
+    
+    <section class="sub-item-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                {% for service in service %}
+                <div class="col-lg-3 col-md-6 col-sm-8">
+                    <div class="sub-item">
+                        <div class="icon">
+                            <img src="{{service.icon.url}}" alt="{{service.service_title}}">
+                        </div>
+                        <h3 class="title">{{service.service_title}}</h3>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--====== SUB ITEM PART ENDS ======-->
+
+    <!--====== ABOUT US PART START ======-->
+    
+    <section class="about-us-area pb-100">
+        {% for aboutone in aboutone %}
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="about-content">
+                        <img src="{% static 'images/hero-line.png' %}" alt="hero line about section gd">
+                        <span>{{aboutone.sub_heading}}</span>
+                        <h3 class="title">{{aboutone.heading}} </h3>
+                        <p>{{aboutone.content|safe}}</p>
+                        <a class="main-btn" href="{% url 'about' %}">En Savoir Plus</a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="about-thumb animated wow fadeInRight" data-wow-duration="3000ms" data-wow-delay="0ms">
+                        <img src="{{aboutone.image.url}}" alt="{{aboutone.heading}}">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    
+    <!--====== ABOUT US PART ENDS ======-->
+
+    <!--====== SERVICE PART START ======-->
+    
+    <section class="service-area pb-20">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="hero-liness">
+                        <h3 class="title">Nos Services</h3>
+                        <p>Nous offrons des services de haute qualité pour répondre à tous vos besoins. Faites confiance à notre expertise pour des résultats exceptionnels.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                {% for hservice in hservice %}
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="service-item mt-30 animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0ms">
+                        <div class="icon">
+                            <img src="{{hservice.icon.url}}" alt="{{hservice.service_title}}">
+                        </div>
+                        <h3 class="title">{{hservice.service_title}}</h3>
+                        <p>{{hservice.description}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container pt-60">
+        <div class="row justify-content-center">
+            <a class="main-btn" href="{% url 'service' %}">Tous Services</a>
+        </div>
+    </div>
+    </section>
+    
+    <!--====== SERVICE PART ENDS ======-->
+
+    <!--====== PORTFOLIO PART START ======-->
+    
+    <section class="portfolio-area pb-130">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="hero-linegdgd">
+                        <h3 class="title">Notre Portfolio</h3>
+                        <p>Notre portfolio en tant qu'agence digitale: une collection d'œuvres créatives et innovantes qui démontrent notre expertise en design et développement web.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="row portfolio-active">
+                {% for portfolio in portfolio %}
+                <div class="col-lg-3">
+                    <div class="portfolio-item mt-30">
+                        <img src="{{portfolio.image.url}}" alt="{{portfolio.title}}">
+                        <div class="portfolio-overlay">
+                            <div class="content">
+                                <img src="{% static 'images/hero-line.png' %}" alt="hero linedcx">
+                                <a href="{% url 'port_detail' portfolio.slug %}"><h4 class="title">{{portfolio.title}}</h4></a>
+                                <p>{{portfolio.meta_description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section>
+    
+    <!--====== PORTFOLIO PART ENDS ======-->
+
+    <!--====== TESTIMONIAL PART START ======-->
+    
+    <section class="testimonial-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title section-title-2 text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="hero line thgd">
+                        <h3 class="title">Témoignages
+                        </h3>
+                        <p>Nous sommes fiers d'aider nos clients à atteindre leurs objectifs. Voici quelques-uns de leurs commentaires sur notre travail en tant qu'agence digitale.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row testimonial-active">
+                {% for testimonial in testimonial %}
+                <div class="col-lg-4">
+                    <div class="testimonial-item mt-30">
+                        <div class="quote">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="53.729" height="40" viewBox="0 0 53.729 40">
+                              <g data-name="Group 21" transform="translate(0 0)">
+                                <path data-name="Union 1" d="M47.055,40a1.21,1.21,0,0,1-1.018-.509L31.106,19.357A12.178,12.178,0,0,1,29.07,11.1,12.364,12.364,0,1,1,45.98,23.881l6.957,14.253A1.313,1.313,0,0,1,51.806,40ZM18.1,40a1.209,1.209,0,0,1-1.018-.509L2.149,19.357A12.77,12.77,0,0,1,.056,11.043,12.395,12.395,0,1,1,17.023,23.881L23.98,38.134A1.313,1.313,0,0,1,22.849,40Z" transform="translate(0 0)"/>
+                              </g>
+                            </svg>
+                        </div>
+                        <p>{{testimonial.client_message}}</p>
+                        <div class="info">
+                            <img style="border-radius:40px;" src="{{testimonial.image.url}}" alt="{{testimonial.client_name}}">
+                            <h5 class="title">{{testimonial.client_name}}</h5>
+                            <span>{{testimonial.client_designatiion}}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section>
+    
+    <!--====== TESTIMONIAL PART ENDS ======-->
+
+    <!--====== OVERVIEW PART START ======-->
+    
+    <section class="overview-area pb-100">
+        <div class="container">
+            <div class="row">
+                {% for abouttwo in abouttwo %}
+                <div class="col-lg-6">
+                    <div class="overview-content">
+                        <img src="{% static 'images/hero-line.png' %}" alt="hero linne hhjj">
+                        <span>{{abouttwo.sub_heading}}</span>
+                        <h3 class="title">{{abouttwo.heading }}</h3>
+                        <p>{{abouttwo.content|safe}}</p>
+                        <a class="main-btn" href="{% url 'contact' %}">Contactez-Nous
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-lg-6">
+                    <div class="overview-counter-area">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="overview-counter-item mt-10 animated wow fadeInUp" data-wow-duration="3000ms" data-wow-delay="0ms">
+                                    <div class="icon">
+                                        <img src="{% static 'images/project.png' %}" alt="project images udd">
+                                    </div>
+                                    <h3 class="title count">15</h3>
+                                    <span>Projets</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="overview-counter-item mt-10 animated wow fadeInUp" data-wow-duration="3000ms" data-wow-delay="300ms">
+                                    <div class="icon">
+                                        <img src="{% static 'images/rating.png' %}" alt="rating images iii">
+                                    </div>
+                                    <h3 class="title count">15</h3>
+                                    <span>Clients satisfaits</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="overview-counter-item mt-30 animated wow fadeInUp" data-wow-duration="3000ms" data-wow-delay="600ms">
+                                    <div class="icon">
+                                        <img src="{% static 'images/flowchart.png' %}" alt="flow chart lkj">
+                                    </div>
+                                    <h3 class="title count">06</h3>
+                                    <span>
+                                        Projets en cours</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="overview-counter-item mt-30 animated wow fadeInUp" data-wow-duration="3000ms" data-wow-delay="900ms">
+                                    <div class="icon">
+                                        <img src="{% static 'images/target-2.png' %}" alt="target two images">
+                                    </div>
+                                    <h3 class="title count">05</h3>
+                                    <span>Clients permanents</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--====== OVERVIEW PART ENDS ======-->
+
+    <!--====== TEAM PART START ======-->
+    
+    <section class="team-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="our team image good">
+                        <h3 class="title">Notre équipe</h3>
+                        <p>Notre équipe est une agence digitale passionnée par la création de solutions innovantes et sur mesure pour aider nos clients à atteindre leurs objectifs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row team-active">
+                {% for team in team %}
+                <div class="col-lg-3">
+                    <div class="team-item mt-40 mb-100">
+                        <img src="{{team.image.url}}" alt="{{team.member_name}}">
+                        <div class="team-overlay d-flex align-items-end">
+                            <div class="content">
+                                <h4 class="title">{{team.member_name}}</h4>
+                                <span>{{team.position}}</span>
+                                <ul>
+                                    <li><a href="{{team.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{team.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{{team.youtube}}"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="{{team.instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section>
+    
+    <!--====== TEAM PART ENDS ======-->
+
+    <!--====== PRICING PART START ======-->
+    
+    <section class="pricing-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title section-title-2 text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="pricing image images">
+                        <h3 class="title">Nos Prestations</h3>
+                        <p>Notre objectif est de vous apporter le meilleur soutien possible en vous guidant à travers la formation et la fourniture de services.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-9 order-1">
+                    <div class="pricing-item mt-30 animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="0ms">
+                        <h3 class="title">Free</h3>
+                        <span>Personal Plan</span>
+                        <p>Aussehen ist nicht alles, aber ein guter Anfang! Sei schön mit…</p>
+                        <ul>
+                            <li>Logos & Branding</li>
+                            <li>2D Visuals</li>
+                            <li>3D Animations</li>
+                            <li>Social Media</li>
+                        </ul>
+                        <a class="main-btn" href="{% url 'contact' %}">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-9 order-3 order-lg-2">
+                    <div class="pricing-item mt-30 center animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0ms">
+                        <h3 class="title">$249.00</h3>
+                        <span>Professional Plan</span>
+                        <p>Aussehen ist nicht alles, aber ein guter Anfang! Sei schön mit…</p>
+                        <ul>
+                            <li>Logos & Branding</li>
+                            <li>2D Visuals</li>
+                            <li>3D Animations</li>
+                            <li>Social Media</li>
+                        </ul>
+                        <a class="main-btn" href="{% url 'contact' %}">Get Started</a>
+                        <div class="tag">Popular</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-9 order-2 order-lg-3">
+                    <div class="pricing-item mt-30 animated wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="0ms">
+                        <h3 class="title">$249.00</h3>
+                        <span>Premium Plan</span>
+                        <p>Aussehen ist nicht alles, aber ein guter Anfang! Sei schön mit…</p>
+                        <ul>
+                            <li>Logos & Branding</li>
+                            <li>2D Visuals</li>
+                            <li>3D Animations</li>
+                            <li>Social Media</li>
+                        </ul>
+                        <a class="main-btn" href="{% url 'contact' %}">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--====== PRICING PART ENDS ======-->
+    
+    <!--====== ARTICAL PART START ======-->
+    
+    <section class="article-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="section-title text-center">
+                        <img src="{% static 'images/hero-line.png' %}" alt="recent article hero line image">
+                        <h3 class="title">Article Récent</h3>
+                        <p>Explorez nos dernières actualités et articles de blog pour découvrir les dernières tendances, astuces et conseils dans notre domaine d'expertise</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                {% for homeblogs in homeblogs %}
+                <div class="col-lg-4 col-md-6 col-sm-9">
+                    <div class="article-item mt-30">
+                        <div class="article-top text-center">
+                            <a href="{% url 'blog_detail' homeblogs.slug %}"><span>{{homeblogs.title}}</span></a>
+                        </div>
+                        <div class="article-thumb">
+                            <a href="{% url 'blog_detail' homeblogs.slug %}"><img src="{{homeblogs.image.url}}" alt="{{homeblogs.title}} homepage"></a>
+                            <div class="date">
+                                <h5 class="title">{{homeblogs.add_date | date:"d"}}</h5>
+                                <span>{{homeblogs.add_date | date:"M"}}</span>
+                            </div>
+                        </div>
+                        <div class="article-content pl-25 pr-25 pt-25">
+                            <p>{{homeblogs.meta_description}}</p>
+                            <a href="{% url 'blog_detail' homeblogs.slug %}">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!--====== ARTICAL PART ENDS ======-->
+
+    {% endblock  %}

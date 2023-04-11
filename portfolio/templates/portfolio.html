@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--Page SEO Snippets-->
+{% block titles %}
+{% for p_seo in p_seo %}
+{{p_seo.meta_title}}
+{% endfor %}
+{% endblock titles %}
+
+
+{% block meta_description %}
+{% for p_seo in p_seo %}
+{{p_seo.meta_description}}
+{% endfor %}
+{% endblock meta_description %}
+
+
+{% block meta_keyword %}
+{% for p_seo in p_seo %}
+{{p_seo.meta_keyword}}
+{% endfor %}
+{% endblock meta_keyword %}
+<!--Page SEO Snippets-->
+
+
+{% block portfolioblock %}
+    <!--====== PAGE TITLE  PART START ======-->
+    {% for pslider in pslider %}
+    <div class="page-title-area">
+        <div class="section__bg" style="background-image: url('{{pslider.slider_image.url}}');"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-title-content text-center">
+                        <h3 class="title">Modèles de Site</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Modèles de Site</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!--====== PAGE TITLE  PART ENDS ======-->
+
+   <!--====== PORTFOLIO STYLE 4 PART START ======-->
+    
+   <section class="portfolio-style-4-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-9">
+                <div class="section-title text-center">
+                    <h3 class="title">Modèles de Site</h3>
+                    <div class="project-menu">
+                        {% for pcat in pcat %}
+                        <ul>
+                            <li data-filter=".{{pcat.title}}" class="active" style="background: #ff8a0a !important;">{{pcat.title}}</li>
+                        </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row grid">
+            {% for portfolio in portfolio %}
+            <div class="col-lg-4 col-md-6 cat-4 cat-2 {{portfolio.cat}}">
+                <div class="portfolio-style-4-item mt-30">
+                    <div class="portfolio-thumb">
+                        <img src="{{portfolio.image.url}}" alt="{{portfolio.title}} new new images image">
+                        <a href="{% url 'port_detail' portfolio.slug %}">See details <span><img src="{% static 'images/icon/portfolio-arrow-2.png' %}" alt="{{portfolio.title}}"></span></a>
+                    </div>
+                    <div class="portfolio-content">
+                        <h5 class="title">{{portfolio.title}}</h5>
+                        <span>{{portfolio.cat}}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!--====== PORTFOLIO STYLE 4 PART ENDS ======-->
+    {% endblock portfolioblock %}
+    
