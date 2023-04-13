@@ -112,7 +112,7 @@
                     <form role="form" action="{% url 'contact' %}" method="post">
                         {% csrf_token %}
                     <div class="subscribe-form subscribe-9-form subscribe-13-form">
-                        <input type="email" name="emails" placeholder="Your email address">
+                        <input type="email" name="emails" placeholder="Your email address" required>
                         <button type="submit" class="main-btn" name="formtwo">SUBSCRIBE</button>
                     </div>
                 </form>
