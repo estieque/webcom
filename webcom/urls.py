@@ -38,7 +38,7 @@ urlpatterns = [
     path('modeles-de-site/',include('portfolio.urls')),
     path('blog/',include('blog.urls')),
     path('services/',include('services.urls')),
-    path('contactez-nous/',include('contact.urls')),
+    path('contact/',include('contact.urls')),
     path('galerie/',include('gallery.urls')),
     path('demarche-web/',include('web_approach.urls')),
     
