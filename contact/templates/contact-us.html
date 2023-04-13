@@ -77,8 +77,6 @@
                                     <div class="input-box mt-10">
                                         <textarea name="message" id="#" cols="30" rows="10" placeholder="écrire un message" required></textarea>
                                     </div>
-                                    <div class="g-recaptcha" id="rcaptcha"  data-sitekey="site key"></div>
-<span id="captcha" style="color:red" /></span> <!-- this will show captcha errors -->
                                     <div class="input-box">
                                         <button class="main-btn " type="submit" name="formone">Soumettre</button>
                                     </div>
@@ -124,24 +122,5 @@
     </div>
     
     <!--====== SUBSCRIBE PART ENDS ======-->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-<script>
-
-function get_action(form) 
-{
-    var v = grecaptcha.getResponse();
-    if(v.length == 0)
-    {
-        document.getElementById('captcha').innerHTML="You can't leave Captcha Code empty";
-        return false;
-    }
-    else
-    {
-         document.getElementById('captcha').innerHTML="Captcha completed";
-        return true; 
-    }
-}
-
-</script>
     {% endblock contactpage %}
    
