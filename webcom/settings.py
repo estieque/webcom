@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-!c+x7j==94k2hd@off%i-8z3rfx(^i0q_5qrn^x^ecvsr*e8gp
 #with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
     #SECRET_KEY = f.read().strip()
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-#DEBUG = True
+#DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
