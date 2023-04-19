@@ -18,7 +18,7 @@ class WebApproachSeoSnippets(models.Model):
 class WebApproachSlider(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
-    slider_image = models.ImageField(blank=True, null=True, upload_to='about-slider/')
+    slider_image = models.ImageField(blank=True, null=True, upload_to='webapp-slider/')
     
     class Meta:
         verbose_name_plural = "Breadcrumb Image"
@@ -33,7 +33,7 @@ class WebApproachContent(models.Model):
     content_id = models.AutoField(primary_key=True)
     heading = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.ImageField(blank=True, null=True, upload_to='about/')
+    image = models.ImageField(blank=True, null=True, upload_to='webapp/')
     add_date = models.DateTimeField(auto_now_add=True, null=True)
     
     class Meta:
