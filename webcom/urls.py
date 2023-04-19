@@ -45,8 +45,8 @@ urlpatterns = [
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-#if settings.DEBUG:
-    #urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     
 from django.conf.urls import handler400, handler403, handler404, handler500  
 handler400 = "errors.views.custom_400_view"
