@@ -60,15 +60,14 @@
                     <div class="single-post-content mt-30">
                         <div class="single-post-topbar">
                             <ul>
-                                <li><img src="{% static 'images/icon/post-icon-1.png' %}" alt="post icon one"> {{blogd.add_date}}</li>
+                                <li><img src="{% static 'images/icon/post-icon-1.png' %}" alt="post icon one"> {{blogd.add_date | date:"M d, Y"}}</li>
                                 <li><img src="{% static 'images/icon/post-icon-2.png' %}" alt="post icon two"> {{blogd.cat}}</li>
                             </ul>
                             <div class="social">
                                 <ul>
-                                    <li><a href="{{settings.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="{{settings.twitter}}"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="{{settings.linkedIn}}"><i class="fab fa-linkedin"></i></a></li>
-                                    <li><a href="{{settings.instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="{{settings.facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{settings.discord}}" target="_blank"><i class="fab fa-discord"></i></a></li>
+                                    <li><a href="{{settings.youtube}}" target="_blank"><i class="fab fa-youtube"></i></a></li>
                                 </ul>
                             </div>
                         </div>
