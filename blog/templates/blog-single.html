@@ -110,7 +110,7 @@
                             </form>
                         </div>
                         <div class="sidebar-categories mt-30">
-                            <h4 class="title">Categories</h4>
+                            <h4 class="title">Catégories</h4>
                             {% for pcat in pcat %}
                             <ul>
                                 <li><a href="#"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {{pcat.title}} ({{pcat.cat_id}}) <span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
@@ -118,7 +118,7 @@
                             {% endfor %}
                         </div>
                         <div class="sidebar-post mt-30">
-                            <h4 class="title">Popular post</h4>
+                            <h4 class="title">Article Populaires</h4>
                             <div class="post-items">
                                 {% for homeblogs in homeblogs %}
                                 <div class="item mt-30">
@@ -135,7 +135,7 @@
                             </div>
                         </div>
                         <div class="sidebar-gallery mt-30">
-                            <h3 class="title">Gallery</h3>
+                            <h3 class="title">Galerie</h3>
                                 <div class="row">
                                 {% for gallery in gallery %}
                                     <div class="col-sm-4 pt-20"><img style="border:2px solid #ff931e; border-radius: 4px;" src="{{gallery.image.url}}" alt="{{gallery.title}}"></div>
@@ -174,7 +174,7 @@
             <div class="row justify-content-center mb-100">
                 <div class="col-lg-10">
                     <div class="post-form-title">
-                        <h3 class="title">Leave an opinion</h3>
+                        <h3 class="title">Laisser un commentaire</h3>
                     </div>
                     <div class="post-form-item">
                         <form role="form" action="{% url 'blog_detail' blogd.slug %}" method="post">
@@ -182,18 +182,18 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="text" placeholder="Full name" name="name">
+                                        <input type="text" placeholder="Nom" name="name">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="email" placeholder="Email address" name="emailadd" required>
+                                        <input type="email" placeholder="Email" name="emailadd" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="input-box mt-30">
-                                        <textarea name="content" id="#" cols="30" rows="10" placeholder="Tell us about your opinion…"></textarea>
-                                        <button type="submit" name="formtwo" class="main-btn mt-20">POST OPINION</button>
+                                        <textarea name="content" id="#" cols="30" rows="10" placeholder="Merci de prendre le temps de rédiger un commentaire..."></textarea>
+                                        <button type="submit" name="formtwo" class="main-btn mt-20">PUBLIER</button>
                                     </div>
                                 </div>
                             </div>
