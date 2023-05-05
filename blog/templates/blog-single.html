@@ -82,7 +82,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     {% for prevblogs in prevblogs %}
                                     <div class="prev-post">
-                                        <span>PREVIOUS NEWS</span>
+                                        <span>Article Précédent</span>
                                         <a href="{% url 'blog_detail' prevblogs.slug %}"><p>{{prevblogs.title}}</p></a>
                                     </div>
                                     {% endfor %}
@@ -90,7 +90,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     {% for nextblogs in nextblogs %}
                                     <div class="prev-post">
-                                        <span>NEXT NEWS</span>
+                                        <span>Article Suivent</span>
                                         <a href="{% url 'blog_detail' nextblogs.slug %}"><p>{{nextblogs.title}}</p></a>
                                     </div>
                                     {% endfor %}
