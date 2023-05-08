@@ -202,9 +202,7 @@
                     <div class="post-news">
                         <div class="post-news-title">
                             <h3 class="title">Tous les commentaires</h3>
-                            {% if not comments %}
                             <h8> Pas encore de commentaires </h8>
-                            {% else %}
                         </div>
                         <div class="post-news-items">
                             {% for comments in comments %}
@@ -215,7 +213,6 @@
                             {% endfor %}
                             
                         </div>
-                        {% endif %}
                     </div>
                 </div>
             </div>
