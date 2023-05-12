@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render
 from django.contrib import messages
 # Create your views here.
 from django.db.models import Count, Q
@@ -70,10 +70,10 @@ def blog_detail(request, slug_url):
 def read_category(request, cat_slug):
     blogslider = BlogSlider.objects.all().order_by('-id')[:1]
     settings = SiteSetting.objects.all()
-    cats = get_object_or_404(PostCategory,cat_slug = cat_slug)
-    blog_posts = BlogPost.objects.filter(cat=cats)
-    num_posts = blog_posts.count()
-    context={'cats':cats,'blogslider': blogslider, 'settings': settings, 'blog_posts':blog_posts, 'num_posts':num_posts,}
+    category = PostCategory.objects.get(cat_slug = cat_slug)
+    posts = BlogPost.objects.filter(cat=category)
+    num_posts = posts.count()
+    context={'category':category,'blogslider': blogslider, 'settings': settings, 'posts':posts, 'num_posts':num_posts,}
     return render(request, 'category.html', context)
 
 

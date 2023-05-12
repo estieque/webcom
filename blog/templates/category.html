@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-title-content text-center">
-                        <h3 class="title">Catégories</h3>
+                        <h3 class="title">{{ category.title }}</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Accueil</a></li>
@@ -53,22 +53,22 @@
     <section class="article-page-area pt-70 pb-100">
         <div class="container">
             <div class="row justify-content-center">
-                {% for blog_posts in blog_posts %}
+                {% for posts in posts %}
                 <div class="col-lg-4 col-md-6 col-sm-9">
                     <div class="article-2-item mt-30">
                         <div class="article-thumb">
-                            <img src="{{blog_posts.image.url}}" alt="{{blog_posts.title}}">   
+                            <img src="{{posts.image.url}}" alt="{{posts.title}}">   
                         </div>
                         <div class="article-content">
                             <div class="date">
                                 <div class="item">
-                                    <h5 class="title">{{blog_posts.add_date | date:"d"}}</h5>
-                                    <span>{{blog_posts.add_date | date:"M"}}</span>
+                                    <h5 class="title">{{posts.add_date | date:"d"}}</h5>
+                                    <span>{{posts.add_date | date:"M"}}</span>
                                 </div>
-                                <span>{{blog_posts.cat}}</span>
+                                <span>{{posts.cat}}</span>
                             </div>
-                            <h3 class="title">{{blog_posts.title}}</h3>
-                            <a href="{% url 'blog_detail' blog_posts.slug %}">
+                            <h3 class="title">{{posts.title}}</h3>
+                            <a href="{% url 'blog_detail' posts.slug %}">
                                 Voir Plus 
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10.196" height="12.663" viewBox="0 0 10.196 12.663">
