@@ -725,7 +725,7 @@
         /*===============================  
              Prealoder 
         ================================*/
-        jQuery('.preloader').delay(500).fadeOut(500);
+        jQuery('.preloader').delay(100).fadeOut(100);
     });
 
 })(jQuery);

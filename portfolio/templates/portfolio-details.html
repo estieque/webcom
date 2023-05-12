@@ -31,7 +31,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Accueil</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
-                                <li class="breadcrumb-item active" aria-current="page">Details</li>
+                                <li class="breadcrumb-item active" aria-current="page">Détails</li>
                             </ol>
                         </nav>
                     </div>
@@ -109,11 +109,11 @@
                     <div class="portfolio-style-4-item mt-30">
                         <div class="portfolio-thumb">
                             <img src="{{portfolio.image.url}}" alt="{{portfolio.title}} new">
-                            <a href="{% url 'port_detail' portfolio.slug %}">See details <span><img src="{% static 'images/icon/portfolio-arrow-2.png' %}" alt="portfolio image arrow image"></span></a>
+                            <a href="{% url 'port_detail' portfolio.slug %}">Voir Plus <span><img src="{% static 'images/icon/portfolio-arrow-2.png' %}" alt="portfolio image arrow image"></span></a>
                         </div>
                         <div class="portfolio-content">
                             <h5 class="title">{{portfolio.title}}</h5>
-                            <span>{{portfolio.cat}}</span>
+                            <span style="color: #ff8a0a;">{{portfolio.cat}}</span>
                         </div>
                     </div>
                 </div>

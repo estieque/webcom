@@ -2,27 +2,6 @@
 {% load static %}
 
 
-<!--Page SEO Snippets-->
-{% block titles %}
-{% for b_seo in b_seo %}
-{{b_seo.meta_title}} - WEBCOM08
-{% endfor %}
-{% endblock titles %}
-
-
-{% block meta_description %}
-{% for b_seo in b_seo %}
-{{b_seo.meta_description}}
-{% endfor %}
-{% endblock meta_description %}
-
-
-{% block meta_keyword %}
-{% for b_seo in b_seo %}
-{{b_seo.meta_keyword}}
-{% endfor %}
-{% endblock meta_keyword %}
-<!--Page SEO Snippets-->
 
 {% block search %}
     <!--====== PAGE TITLE  PART START ======-->

@@ -113,7 +113,7 @@
                             <h4 class="title">Catégories</h4>
                             {% for countcat in countcat %}
                             <ul>
-                                <li><a href="{%url 'read_category' cats.slug %}"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {{countcat.title}} ({{countcat.num_blogs}}) <span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
+                                <li><a href="{%url 'read_category' countcat.slug %}"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {{countcat.title}} ({{countcat.num_blogs}}) <span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
                             </ul>
                             {% endfor %}
                         </div>
@@ -126,7 +126,7 @@
                                         <img src="{{homeblogs.image.url}}" style="height:85px; width:110px" alt="{{homeblogs.title}}">
                                     </div>
                                     <div class="content">
-                                        <a href="#"><h5 class="title">{{homeblogs.title}}</h5></a>
+                                        <a href="{% url 'blog_detail' homeblogs.slug %}"><h5 class="title">{{homeblogs.title}}</h5></a>
                                         <span>{{homeblogs.add_date}}</span>
                                     </div>
                                 </div>
