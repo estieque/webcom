@@ -60,10 +60,12 @@ def blog_detail(request, slug_url):
 
     
 def read_category(request, slug_url):
+    blogslider = BlogSlider.objects.all().order_by('-id')[:1]
+    settings = SiteSetting.objects.all()
     cats = PostCategory.objects.get(slug=slug_url)
     cblogs = BlogPost.objects.filter(PostCategory = cats)
     countcat = PostCategory.objects.annotate(num_blogs=Count('blog'))
-    context={'cats':cats, 'cblogs': cblogs, 'countcat': countcat,}
+    context={'cats':cats, 'cblogs': cblogs, 'countcat': countcat, 'blogslider': blogslider, 'settings': settings,}
     return render(request, 'category.html', context)
 
 
