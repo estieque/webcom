@@ -32,22 +32,22 @@
     <section class="article-page-area pt-70 pb-100">
         <div class="container">
             <div class="row justify-content-center">
-                {% for cblogs in cblogs %}
+                {% for sercblogs in sercblogs %}
                 <div class="col-lg-4 col-md-6 col-sm-9">
                     <div class="article-2-item mt-30">
                         <div class="article-thumb">
-                            <img src="{{cblogs.image.url}}" alt="{{cblogs.title}}">   
+                            <img src="{{sercblogs.image.url}}" alt="{{sercblogs.title}}">   
                         </div>
                         <div class="article-content">
                             <div class="date">
                                 <div class="item">
-                                    <h5 class="title">{{cblogs.add_date | date:"d"}}</h5>
-                                    <span>{{cblogs.add_date | date:"M"}}</span>
+                                    <h5 class="title">{{sercblogs.add_date | date:"d"}}</h5>
+                                    <span>{{sercblogs.add_date | date:"M"}}</span>
                                 </div>
-                                <span>{{cblogs.cat}}</span>
+                                <span>{{sercblogs.cat}}</span>
                             </div>
-                            <h3 class="title">{{cblogs.title}}</h3>
-                            <a href="{% url 'blog_detail' cblogs.slug %}">
+                            <h3 class="title">{{sercblogs.title}}</h3>
+                            <a href="{% url 'blog_detail' sercblogs.slug %}">
                                 Voir Plus 
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10.196" height="12.663" viewBox="0 0 10.196 12.663">

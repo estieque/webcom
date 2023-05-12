@@ -68,6 +68,10 @@ def read_category(request, slug_url):
 
 
 def blog_search(request):
+    blogslider = BlogSlider.objects.all().order_by('-id')[:1]
+    settings = SiteSetting.objects.all()
     query = request.GET.get('q')
-    sercblogs = BlogPost.objects.filter(Q(title__icontains=query))
-    return render(request, 'search.html', {'sercblogs': sercblogs})
+    if query:
+     results = request.GET.get('q')
+    sercblogs = BlogPost.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
+    return render(request, 'search.html', {'sercblogs': sercblogs, 'blogslider':blogslider, 'settings':settings, 'query': query, 'results': results, })
