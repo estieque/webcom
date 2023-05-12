@@ -38,7 +38,7 @@ class PostCategory(models.Model):
     meta_description = models.CharField(max_length=80)
     meta_tags = models.CharField(max_length=200)
     description =models.TextField()
-    slug = models.SlugField(null=True, unique=True)
+    cat_slug = models.SlugField(null=True, unique=True)
     image = models.ImageField(upload_to='category/')
     add_date = models.DateTimeField(auto_now_add=True, null=True)
     

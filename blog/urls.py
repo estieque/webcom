@@ -20,6 +20,6 @@ from django.urls import path
 urlpatterns = [
     path('', views.blog, name="blog"),
     path('<str:slug_url>', views.blog_detail, name="blog_detail"),
-    path('category/<str:slug_url>', views.read_category, name="category"),
+    path('category/<str:cat_slug>', views.read_category, name="category"),
     path('recherche/', views.blog_search, name='blog_search'),
 ]

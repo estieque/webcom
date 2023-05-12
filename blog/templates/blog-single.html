@@ -111,9 +111,9 @@
                         </div>
                         <div class="sidebar-categories mt-30">
                             <h4 class="title">Catégories</h4>
-                            {% for countcat in countcat %}
+                            {% for pcat in pcat %}
                             <ul>
-                                <li><a href="{%url 'read_category' countcat.slug %}"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {{countcat.title}} ({{countcat.num_blogs}}) <span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
+                                <li><a href="{%url 'category' pcat.cat_slug %}"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {{pcat.title}} <span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
                             </ul>
                             {% endfor %}
                         </div>
