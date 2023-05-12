@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 # Create your views here.
-
+from django.db.models import Count, Q
 from django.shortcuts import render
 from blog.models import BlogPost, PostAuthor
 from emaillist.models import EmailSubs
@@ -59,4 +59,15 @@ def blog_detail(request, slug_url):
         return render(request, 'blog-single.html',context)
 
     
-        
+def read_category(request, slug_url):
+    cats = PostCategory.objects.get(slug=slug_url)
+    cblogs = BlogPost.objects.filter(PostCategory = cats)
+    countcat = PostCategory.objects.annotate(num_blogs=Count('blog'))
+    context={'cats':cats, 'cblogs': cblogs, 'countcat': countcat,}
+    return render(request, 'category.html', context)
+
+
+def blog_search(request):
+    query = request.GET.get('q')
+    sercblogs = BlogPost.objects.filter(Q(title__icontains=query))
+    return render(request, 'search.html', {'sercblogs': sercblogs})
