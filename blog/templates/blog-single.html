@@ -103,7 +103,6 @@
                     <div class="single-post-sidebar mt-30">
                         <div class="sidebar-search">
                             <form action="{% url 'blog_search' %}" method="get">
-                                {% csrf_token %}
                                 <div class="input-box">
                                     <input type="text" name="q" placeholder="Recherche">
                                     <button type="submit"><i class="far fa-search"></i></button>
@@ -112,9 +111,9 @@
                         </div>
                         <div class="sidebar-categories mt-30">
                             <h4 class="title">Catégories</h4>
-                            {% for cats in cats %}
+                            {% for countcat in countcat %}
                             <ul>
-                                <li><a href="{%url 'read_category' cats.slug %}"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {% for countcat in countcat %}{{countcat.title}} ({{countcat.num_blogs}}) {% endfor %}<span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
+                                <li><a href="{%url 'read_category' cats.slug %}"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {{countcat.title}} ({{countcat.num_blogs}}) <span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
                             </ul>
                             {% endfor %}
                         </div>
