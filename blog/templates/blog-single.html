@@ -113,7 +113,7 @@
                             <h4 class="title">Catégories</h4>
                             {% for pcat in pcat %}
                             <ul>
-                                <li><a href="{%url 'category' pcat.cat_slug %}"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {{pcat.title}} <span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
+                                <li><a href="{%url 'category' pcat.cat_slug %}"><img src="{% static 'images/post-arrow.png' %}" alt="post arrow one"> {{pcat.title}} {{post_count}}<span><img src="{% static 'images/icon/hero-icon-2.png' %}" alt="post arrow teo js"></span></a></li>
                             </ul>
                             {% endfor %}
                         </div>
