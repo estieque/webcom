@@ -37,3 +37,32 @@ def home(request):
              'fscript':fscript, 
              }
     return render(request, 'index.html', context)
+
+
+def terms(request):
+    settings = SiteSetting.objects.all()
+    h_slider = Slider.objects.all().order_by('-id')[:1]
+    aboutone = AboutContentOne.objects.all().order_by('-content_id')[:1]
+    portfolio = Portfolios.objects.all()
+    testimonial = Testimonial.objects.all()
+    abouttwo = AboutContentTwo.objects.all().order_by('-content_id')[:1]
+    hscript = HeaderScript.objects.all().order_by('-s_id')[:1]
+    fscript = FooterScript.objects.all().order_by('-s_id')[:1]
+    homeblogs = BlogPost.objects.all().order_by('-add_date')[:3]
+    team = TeamMember.objects.all()
+    service= Service.objects.all().order_by('-ser_id')[:4]
+    hservice= Service.objects.all().order_by('ser_id')[:6]
+    context={'settings':settings, 
+             'h_slider':h_slider, 
+             'aboutone':aboutone, 
+             'portfolio':portfolio, 
+             'testimonial':testimonial,
+             'abouttwo':abouttwo, 
+             'homeblogs':homeblogs, 
+             'team':team, 
+             'service':service, 
+             'hservice':hservice, 
+             'hscript':hscript,
+             'fscript':fscript, 
+             }
+    return render(request, 'terms.html', context)
