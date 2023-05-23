@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from about.models import AboutContentOne, AboutContentTwo
+from about.models import AboutContentOne, AboutContentTwo, AboutSlider
 from blog.models import BlogPost
 
 from homepage.models import SiteSetting, Slider
@@ -41,7 +41,7 @@ def home(request):
 
 def terms(request):
     settings = SiteSetting.objects.all()
-    h_slider = Slider.objects.all().order_by('-id')[:1]
+    aslider = AboutSlider.objects.all().order_by('-id')[:1]
     aboutone = AboutContentOne.objects.all().order_by('-content_id')[:1]
     portfolio = Portfolios.objects.all()
     testimonial = Testimonial.objects.all()
@@ -53,7 +53,7 @@ def terms(request):
     service= Service.objects.all().order_by('-ser_id')[:4]
     hservice= Service.objects.all().order_by('ser_id')[:6]
     context={'settings':settings, 
-             'h_slider':h_slider, 
+             'aslider':aslider, 
              'aboutone':aboutone, 
              'portfolio':portfolio, 
              'testimonial':testimonial,
