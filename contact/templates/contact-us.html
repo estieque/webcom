@@ -1,6 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
+<!--Page SEO Snippets-->
+{% block titles %}
+{% for c_seo in c_seo %}
+{{c_seo.meta_title}}
+{% endfor %}
+{% endblock titles %}
+
+
+{% block meta_description %}
+{% for c_seo in c_seo %}
+{{c_seo.meta_description}}
+{% endfor %}
+{% endblock meta_description %}
+
+
+{% block meta_keyword %}
+{% for c_seo in c_seo %}
+{{c_seo.meta_keyword}}
+{% endfor %}
+{% endblock meta_keyword %}
+<!--Page SEO Snippets-->
+
 {% block contactpage %}
 
     <!--====== PAGE TITLE  PART START ======-->
