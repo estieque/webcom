@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.models import Attachment
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 from django_summernote.admin import SummernoteModelAdmin
 
 from about.models import AboutContentOne, AboutContentTwo, AboutSeoSnippets, AboutSlider, ProgressBar
@@ -9,7 +9,7 @@ from about.models import AboutContentOne, AboutContentTwo, AboutSeoSnippets, Abo
 
 admin.site.unregister(Attachment)
 admin.site.unregister(Group)
-
+admin.site.unregister(User)
 class AboutSliderAdmin(admin.ModelAdmin):
     list_display = ('title', 'image_tag', )
     
