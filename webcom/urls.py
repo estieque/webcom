@@ -42,6 +42,8 @@ urlpatterns = [
     path('galerie/',include('gallery.urls')),
     path('demarche-web/',include('web_approach.urls')),
     
+    path('errors/',include('errors.urls')),
+    
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
