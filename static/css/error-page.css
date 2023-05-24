@@ -54,8 +54,8 @@ h1, h2, h3, h4, h5, h6 {
 .loader {
   border: 16px solid #111;
   border-radius: 50%;
-  border-top: 16px double #9874d8;
-  border-bottom: 16px double #9874d8;
+  border-top: 16px double #ff8a0a;
+  border-bottom: 16px double #ff8a0a;
   width: 50px;
   height: 50px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .page-section .content-detail .sub-title, .page-section .content-detail .detail-text {
   display: block;
-  color: #f2edf9;
+  color: #ff8a0a;
   text-align: center;
 }
 .page-section .content-detail .sub-title {
@@ -169,15 +169,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 .page-section .content-detail .back-btn .btn {
   padding: 8px 15px;
-  color: #f2edf9;
+  color: #ffffff;
   border-radius: 30px;
   font-size: 14px;
-  background: #4833a7;
-  border: 1px solid #a7a2bb;
+  background: #ff8a0a;
+  border: 1px solid #000000;
 }
 .page-section .content-detail .back-btn .btn:hover {
-  background-color: #9874d8;
-  color: #fff;
+  background-color: #d5d3d8;
+  color: #050505;
 }
 .page-section .content-detail .pendulum-platform {
   width: 500px;
@@ -199,7 +199,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   width: 20px;
   height: 130px;
-  background: #8a57c5;
+  background: #cb4e37;
   border-radius: 20px;
   position: relative;
   -webkit-transform-origin: 50% 0;
@@ -213,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #8a57c5;
+  background: #ff8a0a;
   border: 2px solid white;
   top: -4.5px;
   left: 4.5px;
@@ -224,14 +224,14 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: -29px;
   left: 1.4px;
-  border: 5px solid #8a57c5;
+  border: 5px solid #ff8a0a;
   border-radius: 50%;
   border-bottom: 2px solid transparent;
 }
 .page-section .content-detail .pendulum {
   width: 200px;
   height: 200px;
-  background: rgb(152, 116, 216);
+  background: #ff8a0a;
   border-radius: 50%;
   position: absolute;
   bottom: -190px;
