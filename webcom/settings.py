@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-!c+x7j==94k2hd@off%i-8z3rfx(^i0q_5qrn^x^ecvsr*e8gp
 #with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
     #SECRET_KEY = f.read().strip()
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-#DEBUG = True
+#DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'scripts.apps.ScriptsConfig',
     'errors.apps.ErrorsConfig',
     'web_approach',
-    'whitenoise',
 ]
 
 MIDDLEWARE = [
@@ -70,7 +69,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'webcom.urls'
@@ -160,6 +158,3 @@ STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 #STATIC_ROOT = '/workspace/static/'
-
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
