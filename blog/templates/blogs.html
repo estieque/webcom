@@ -53,7 +53,7 @@
     <section class="article-page-area pt-70 pb-100">
         <div class="container">
             <div class="row justify-content-center">
-                {% for blogs in blogs %}
+                {% for blogs in page_obj %}
                 <div class="col-lg-4 col-md-6 col-sm-9">
                     <div class="article-2-item mt-30">
                         <div class="article-thumb">
@@ -82,6 +82,20 @@
                 {% endfor %}
                 
             </div>
+        </div>
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">précédent</a>
+                {% endif %}
+        
+                <span class="current-page">{{ page_obj.number }}</span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">suivant</a>
+                {% endif %}
+            </span>
         </div>
     </section>
     

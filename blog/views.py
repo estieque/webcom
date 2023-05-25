@@ -9,16 +9,20 @@ from gallery.models import Gallery
 from homepage.models import SiteSetting
 from .models import BlogSeoSnippets, BlogSlider,Comments, PostCategory
 from .views import *
+from django.core.paginator import Paginator
 # Create your views here.
 def blog(request):
     blogs = BlogPost.objects.all()
+    paginator = Paginator(blogs, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     homeblogs = BlogPost.objects.all().order_by('-add_date')[:3]
     authimage = PostAuthor.objects.all()
     settings = SiteSetting.objects.all()
     b_seo = BlogSeoSnippets.objects.all().order_by('-s_id')[:1]
     blogslider = BlogSlider.objects.all().order_by('-id')[:1]
     context = {'blogs':blogs, 'authimage':authimage, 'settings':settings, 'blogslider':blogslider, 'homeblogs':homeblogs, 
-               'b_seo':b_seo, }
+               'b_seo':b_seo, 'page_obj': page_obj, }
     return render(request, 'blogs.html', context)
 
 
@@ -85,3 +89,7 @@ def blog_search(request):
      results = request.GET.get('q')
     sercblogs = BlogPost.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
     return render(request, 'search.html', {'sercblogs': sercblogs, 'blogslider':blogslider, 'settings':settings, 'query': query, 'results': results, })
+
+
+
+
