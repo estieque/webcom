@@ -21,8 +21,8 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls import handler400, handler403, handler404, handler500  
-
-
+from django.urls import include, re_path
+from django.views.static import serve
 #admin header customozations
 admin.site.site_header = "WEBCOM08 Dashboard"
 admin.site.site_title = "WEBCOM08 Admin"
@@ -44,12 +44,17 @@ urlpatterns = [
     
     path('errors/',include('errors.urls')),
     
+    
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
+
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 handler400 = "errors.views.custom_400_view"
 handler403 = 'errors.views.custom_403_view'

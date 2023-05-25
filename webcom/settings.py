@@ -149,7 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
     
     
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+#MEDIA_ROOT = [os.path.join(BASE_DIR, 'media/')]
 # or, eg,
 #STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
@@ -157,7 +157,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+#STATIC_ROOT = [os.path.join(BASE_DIR, 'static/')]
 #STATIC_ROOT = '/workspace/static/'
 
 
@@ -166,3 +166,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 #RECAPTCHA_REQUIRED_SCORE = 0.85
+
+
+if DEBUG:
+    
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+else:
+
+  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+  
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
