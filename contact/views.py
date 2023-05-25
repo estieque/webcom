@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from contact.models import ContactMessage, ContactSeoSnippets, ContactSlider
 from django.contrib import messages
+from contact.my_captcha import FormWithCaptcha
 from emaillist.models import EmailSubs
 from homepage.models import SiteSetting
 
@@ -11,7 +12,8 @@ def contact(request):
     c_seo = ContactSeoSnippets.objects.all().order_by('-s_id')[:1]
     context={'settings':settings, 
              'cslider':cslider,  
-             'c_seo':c_seo, }
+             'c_seo':c_seo, 
+             'captcha': FormWithCaptcha}
     if request.method == "GET":
         return render(request, 'contact-us.html',context)
     elif request.method=="POST":

@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'scripts.apps.ScriptsConfig',
     'errors.apps.ErrorsConfig',
     'web_approach',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -158,3 +159,10 @@ STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 #STATIC_ROOT = '/workspace/static/'
+
+
+RECAPTCHA_PUBLIC_KEY = '6LczfTkmAAAAAG6XbeDBl-KoTdX9dJQp8PnLnbv4'
+RECAPTCHA_PRIVATE_KEY = '6LczfTkmAAAAACreKsD4Pc1GW5QeFYCCqHlGarkm'
+
+
+RECAPTCHA_REQUIRED_SCORE = 0.85
