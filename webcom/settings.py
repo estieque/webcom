@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'scripts.apps.ScriptsConfig',
     'errors.apps.ErrorsConfig',
     'web_approach',
-    'captcha',
 ]
 
 MIDDLEWARE = [
