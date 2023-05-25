@@ -1,0 +1,54 @@
+
+.page-span {
+    font-family: "Inter", sans-serif;
+    color: #ff8a0a;
+    line-height: 1;
+  }
+  
+  .pg-pagination,
+  .pg-page-numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .pg-pagination {
+    margin-top: 80px;
+  }
+  
+  .page-btn-nav,
+  .btn-page {
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .page-btn-nav {
+    padding: 8px;
+  }
+  
+  .page-btn-nav {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #ff8a0a;
+    color: #ff8a0a;
+  }
+  
+  .page-btn-nav:hover,
+  .btn-page:hover {
+    background-color: #ff8a0a;
+    color: #fff;
+  }
+  
+  .btn-page {
+    border: none;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .btn-selected {
+    background-color: #ff8a0a;
+    color: #fff;
+  }

@@ -84,43 +84,21 @@
             </div>
         </div>
 
-        <div class="pagination">
-            <span class="step-links">
-                {% if page_obj.has_previous %}
-                    <a href="?page={{ page_obj.previous_page_number }}"></a>
-                {% endif %}
-        
-                <span class="current-page">{{ page_obj.number }}</span>
-        
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">suivant</a>
-                {% endif %}
-            </span>
-        </div>
-
     </section>
 
     <section>
         <div class="container">
-            <div class="pg-pagination">
-                <span class="page-btn-nav left-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="left-icon">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>                {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}"></a>
-            {% endif %}
-                </span>
-
-                <div class="pg-page-numbers">
-                <span class="page-span">{{ page_obj.number }}</span>
-                </div>
-
-                <span class="page-btn-nav right-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="right-icon">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>                {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}"></a>
-            {% endif %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}">précédent</a>
+                    {% endif %}
+            
+                    <span class="current-page">{{ page_obj.number }}</span>
+            
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">suivant</a>
+                    {% endif %}
                 </span>
             </div>
         </div>
