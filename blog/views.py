@@ -13,7 +13,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 def blog(request):
     blogs = BlogPost.objects.all()
-    paginator = Paginator(blogs, 3)
+    paginator = Paginator(blogs, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     homeblogs = BlogPost.objects.all().order_by('-add_date')[:3]

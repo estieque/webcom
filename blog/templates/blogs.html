@@ -86,18 +86,18 @@
 
     </section>
 
-    <section>
+    <section class="about-us-area pt-100 pb-100">
         <div class="container">
             <div class="pagination">
                 <span class="step-links">
                     {% if page_obj.has_previous %}
-                        <a href="?page={{ page_obj.previous_page_number }}">précédent</a>
+                        <a style="color: #000000;" href="?page={{ page_obj.previous_page_number }}">précédent</a>
                     {% endif %}
             
                     <span class="current-page">{{ page_obj.number }}</span>
             
                     {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}">suivant</a>
+                        <a style="color: #000000;" href="?page={{ page_obj.next_page_number }}">suivant</a>
                     {% endif %}
                 </span>
             </div>
