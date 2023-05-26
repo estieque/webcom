@@ -4,6 +4,7 @@ from django.contrib import messages
 from emaillist.models import EmailSubs
 from homepage.models import SiteSetting
 import requests
+from django.conf import settings
 # Create your views here.
 def contact(request):
     settings = SiteSetting.objects.all()
@@ -17,7 +18,7 @@ def contact(request):
     elif request.method=="POST":
         recaptcha_response = request.POST.get('g-recaptcha-response')
         data = {
-            'secret': settings.RECAPTCHA_PRIVATE_KEY,
+            'secret': settings.RECAPTCHA_SECRET_KEY,
             'response': recaptcha_response
         }
         response = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
