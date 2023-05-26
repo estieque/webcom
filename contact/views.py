@@ -1,5 +1,3 @@
-
-
 from django.shortcuts import render, redirect
 from contact.models import ContactMessage, ContactSeoSnippets, ContactSlider
 from emaillist.models import EmailSubs
@@ -38,16 +36,16 @@ def contact(request):
                 contact_message = ContactMessage(name=name, email=email, message=message, number=number, location=location)
                 contact_message.save()
                 messages.success(request, 'Votre message a été envoyé avec succès')
+                return redirect('contact')  # Replace 'contact' with your actual URL name for the contact page
 
             if 'formtwo' in request.POST:
                 emails = request.POST.get('emails')
                 email_subs = EmailSubs(emails=emails)
                 email_subs.save()
                 messages.success(request, 'Merci de nous abonner')
+                return redirect('contact')  # Replace 'contact' with your actual URL name for the contact page
 
-            return redirect('contact')  # Replace 'contact' with your actual URL name for the contact page
         else:
             messages.error(request, 'La vérification reCAPTCHA a échoué. Veuillez réessayer.')
-            return redirect('contact')  # Replace 'contact' with your actual URL name for the contact page
 
     return render(request, 'contact-us.html', context)
