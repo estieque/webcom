@@ -36,7 +36,7 @@ urlpatterns = [
     path('',include('homepage.urls')),
     path('a-propos/',include('about.urls')),
     path('modeles-de-site/',include('portfolio.urls')),
-    path('actualités/',include('blog.urls')),
+    path('actualites/',include('blog.urls')),
     path('services/',include('services.urls')),
     path('contact/',include('contact.urls')),
     path('galerie/',include('gallery.urls')),

@@ -2,7 +2,27 @@
 
 {% load static %}
 
+<!--Page SEO Snippets-->
+{% block titles %}
+{% for g_seo in g_seo %}
+{{g_seo.meta_title}}
+{% endfor %}
+{% endblock titles %}
 
+
+{% block meta_description %}
+{% for g_seo in g_seo %}
+{{g_seo.meta_description}}
+{% endfor %}
+{% endblock meta_description %}
+
+
+{% block meta_keyword %}
+{% for g_seo in g_seo %}
+{{g_seo.meta_keyword}}
+{% endfor %}
+{% endblock meta_keyword %}
+<!--Page SEO Snippets-->
 
 {% block gallery %}
     <!--====== PAGE TITLE  PART START ======-->
