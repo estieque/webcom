@@ -16,7 +16,7 @@ def contact(request):
     if request.method == "GET":
         return render(request, 'contact-us.html',context)
     elif request.method=="POST":
-        recaptcha_response = request.POST.get('g-recaptcha-response')
+        recaptcha_response = request.POST.get('g-recaptcha')
         data = {
             'secret': settings.RECAPTCHA_SECRET_KEY,
             'response': recaptcha_response
