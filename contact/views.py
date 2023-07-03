@@ -35,7 +35,7 @@ def contact(request):
             r= request.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
             response = json.loads(r)
             verify = response
-            return render(request,'contact-us.html', verify)
+            return render(request, 'contact-us.html',context, verify)
         if 'formtwo' in request.POST:
             emails=request.POST.get('emails')
             email=EmailSubs(emails=emails)
