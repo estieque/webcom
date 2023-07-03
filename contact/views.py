@@ -25,22 +25,11 @@ def contact(request):
             en=ContactMessage(name=name,email=email,message=message,number=number,location=location)
             en.save()
             messages.success(request, 'Votre message a été envoyé avec succès')
-            
-            clientkey = request.POST['g-recaptcha-response']
-            secretkey = '6LeJZDomAAAAAEL7tX065JTczFkBODgLqGzJbun_'
-            captchaData = {
-                'secret': secretkey,
-                'response': clientkey
-            }
-            r= request.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
-            response = json.loads(r)
-            verify = response
-            return render(request, 'contact-us.html',context, verify)
         if 'formtwo' in request.POST:
             emails=request.POST.get('emails')
             email=EmailSubs(emails=emails)
             email.save()
             messages.success(request, 'Merci de nous abonner')
-        return render(request, 'contact-us.html',context, verify)
+        return render(request, 'contact-us.html',context)
     
     
